@@ -110,6 +110,7 @@ def movies_by_genre(genre: str) -> list:
 
 
 def cast_partners(actor1: str, actor2: str) -> list:
+    """возвращает список актеров, кто играет в паре больше 2 раз"""
     query = f"""
             SELECT `cast` 
             FROM netflix 
@@ -131,6 +132,8 @@ def cast_partners(actor1: str, actor2: str) -> list:
 
 
 def search_movie_by_param(movie_type: str, release_year: int, genre: str):
+    """функция, с помощью которой можно будет передавать тип картины (фильм или сериал),
+    год выпуска и ее жанр и получать на выходе список названий картин с их описаниями в JSON"""
     query = f"""
             SELECT title, description 
             FROM netflix 
