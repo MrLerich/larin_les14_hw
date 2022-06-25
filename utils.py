@@ -1,6 +1,6 @@
 import sqlite3
 from collections import Counter
-from pprint import pprint as pp
+
 
 PATH = "netflix.db"
 
