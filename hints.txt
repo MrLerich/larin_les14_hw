@@ -1,0 +1,74 @@
+# def films_by_rating(category):
+#     connect_db = ConnectDB(PATH)
+#     rating_config = {"children": "'G'",
+#                      "family": "'G', 'PG', 'PG-13'",
+#                      "adult": "'R', 'NC-17'"}
+#     if category not in rating_config:
+#         return "Такой категории нет!"
+#     query = f"""
+#                 SELECT title, rating, description
+#                 FROM netflix
+#                 WHERE rating IN {rating_config[category]}
+#                 """
+#     connect_db.cursor.execute(query)
+#     results = connect_db.cursor.fetchall()
+#     result_lst = []
+#     for movie in results:
+#         result_lst.append({
+#             "title": movie[0],
+#             "rating": movie[1],
+#             "description": movie[2]
+#         })
+#     return result_lst
+
+# def list_films_4_children(category):
+#     connect = sqlite3.connect("netflix.db")
+#     cursor = connect.cursor()
+#     films_4_childrens = []
+#     query = """
+#             SELECT title, rating, description
+#             FROM netflix
+#             WHERE rating = ?
+#             """
+#
+#     if category.lower() == 'children':
+#         rating = ('G')
+#         # else:
+#         #     return 'Данной категории не существует!'
+#         cursor.execute(query, rating)
+#         executed_query = cursor.fetchall()
+#         results = executed_query
+#         for result in results:
+#             films_4_childrens.append({
+#                 "title": result[0],
+#                 "rating": result[1],
+#                 "description": result[2]
+#             })
+#     return films_4_childrens
+#
+
+# def list_films_4_adult(category):             #сделать 3 функции для каждой категории
+#     connect = sqlite3.connect("netflix.db")
+#     cursor = connect.cursor()
+#     films_4_adult = []
+#     query = """
+#             SELECT title, rating, description
+#             FROM netflix
+#             WHERE rating = ? OR rating = ?
+#             """
+#
+#     if category.lower() == 'adult':
+#         rating = ('R', 'NC-17')
+#         cursor.execute(query, rating)
+#         executed_query = cursor.fetchall()
+#         results = executed_query
+#         for result in results:
+#             films_4_adult.append({
+#                 "title": result[0],
+#                 "rating": result[1],
+#                 "description": result[2]
+#             })
+#     return films_4_adult
+
+
+# pp(list_films_4_family('family'))
